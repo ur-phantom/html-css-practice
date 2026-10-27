@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Dark Mode Practice</title>
+        <style>
+            :root {
+                --bg-color: white;
+                --text-color: #333;
+                --card-color: #f0f0f0;
+                --main-color: #5dade2;
+                --border-color: #cccccc;
+            }
+            @media (prefers-color-scheme: dark) {
+                :root {
+                    --bg-color: #1e1e1e;
+                    --text-color: #f0f0f0;
+                    --card-color: #2d2d2d;
+                    --border-color: #555555;
+                }
+            }
+            body {
+                font-family: Arial, sans-serif;
+                background-color: var(--bg-color);
+                color: var(--text-color);
+                padding: 20px;
+            }
+            .card {
+                background-color: var(--card-color);
+                padding: 20px;
+                border-radius: 10px;
+                margin-bottom: 10px;
+                border: 1px solid var(--border-color);
+            }
+            .button {
+                background-color: var(--main-color);
+                color: white;
+                border: none;
+                padding: 10px 20px;
+                border-radius: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Dark Mode Practice</h1>
+        <div class="card">Card one</div>
+        <div class="card">Card two</div>
+        <button class="button">Click me</button>
+    </body>
+</html>

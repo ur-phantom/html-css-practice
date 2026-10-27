@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,  initial-scale=1.0">
+        <title>Overflow Practice</title>
+        <style>
+            .box {
+                width: 200px;
+                height: 80px;
+                background-color: lightblue;
+                margin-bottom: 10px;
+            }
+            .faded {
+                opacity: 0.9;
+            }
+            .visible {
+                overflow: visible;
+            }
+            .hidden {
+                overflow: hidden;
+            }
+            .auto {
+                overflow: auto;
+            }
+            .scroll {
+                overflow: scroll;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box faded">Faded box</div>
+
+        <div class="box visible">This is a long text  that is bigger than the box so it will go outside the box.</div>
+        <div class="box hidden">This is a long text that is bigger than the box so it will go outside the box.</div>
+        <div class="box auto">This is a long text that is bigger than the box so it will go outside the box.</div>
+        <div class="box scroll">This is a long text that is bigger thn the box so it will go outside the box.</div>
+    </body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Semantic HTML</title>
+        <style>
+            :root {
+                --primary-color: #f2f2f2;
+                --bg-color: lightgreen;
+                --text-color: black;
+            }
+
+            header {
+                background-color: var(--bg-color);
+                color: var(--text-color);
+                padding: 25px;   
+            }
+            button {
+                background-color: var(--bg-color);
+                color: var(--text-color);
+                border: none;
+                border-radius: 5px;
+                padding: 10px 20px;
+            }
+
+            button:hover {
+                background-color: gray;
+                cursor: pointer;
+
+            }
+            section {
+                display: none;
+            }
+            section:target {
+                display: block;
+            };
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>Hasibur</h1>
+
+        <nav>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        </header>
+        <main>
+            <section id="about">
+                <h2>About Me</h2>
+                <p>I am a student</p>
+                <p>I am learning web development</p>
+            </section>
+
+            <section id="skills">
+                <h2>My Skills</h2>
+                <p>HTML and CSS</p>
+            </section>
+
+            <section id="contact">
+                <h2>Contact Me</h2>
+                <p>Email: example@gmail.com</p>
+            </section>
+        </main>
+        <button>Learn More</button>
+        <footer>
+            <p>&copy; 2026 Hasibur</p>
+        </footer>
+    </body>
+</html>

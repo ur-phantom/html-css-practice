@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Semantic HTML</title>
+        <style>
+            header {
+                background-color: lightblue;
+                color: black;
+                padding: 25px;   
+            }
+            img {
+                width: 200px;
+            }
+            section {
+                display: none;
+            }
+            section:target {
+                display: block;
+            }
+            main:not(:has(:target)) #about {
+                display: block;
+            }
+            button {
+                background-color: lightgreen;
+                padding: 10px 20px;
+                color: black;
+                border: none;
+                border-radius: 5px;
+            }
+
+            button:hover {
+                background-color: gray;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>Hasibur</h1>
+            <nav>
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#contact">Contact</a>
+            </nav>
+         
+        </header>
+        <main>
+            <section id="about">
+                <h2>About Me</h2>
+                <p>I am a student</p>
+                <p>I am learning web development</p>
+                <figure>
+                    <img src="mee.png" alt="A student Writing code on a laptop">
+                    <figcaption>Learning web development</figcaption>
+                </figure>
+            </section>
+
+            <section id="skills">
+                <h2>My Skills</h2>
+                <table border="1">
+                    <caption>Skills Level</caption>
+                    <thead>
+                        <tr>
+                            <th>Skills</th>
+                            <th>Level</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>HTML</td>
+                            <td>Good</td>
+                        </tr>
+                        <tr>
+                            <td>CSS</td>
+                            <td>Learning</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td>Total</td>
+                            <td>3 skills</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </section>
+
+            <section id="contact">
+                <h2>Contact Me</h2>
+                <p>Email: example@gmail.com</p>
+                <form>
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                    <label for="topic">Topic</label>
+                    <select id="topic" name="topic">
+                        <option value="job">Job</option>
+                        <option value="freelance">Freelance</option>
+                        <option value="other">Other</option>
+                    </select>
+
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="4" placeholder="Write a message" required></textarea>
+
+                    <button type="submit">Send</button>
+                </form>
+            </section>
+        </main>
+        <footer>
+            <p>&copy; 2026 Hasibur</p>
+        </footer>
+    </body>
+</html>

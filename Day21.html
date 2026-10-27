@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>DAy 21 - Navbar</title>
+
+        <style>
+            body {
+                margin: 0;
+                font-family: Arial;
+                background-color: #f2f2f2;
+            }
+
+            .navbar {
+                background-color: #222;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 15px 40px;
+
+                position: sticky;
+                top: 0;
+            }
+
+            .logo {
+                color: white;
+                font-size: 24px;
+                font-weight: bold;
+            }
+
+            .menu {
+                display: flex;
+                gap: 25px;
+            }
+
+            .menu a {
+                color: white;
+                text-decoration: none;
+                padding: 8px 15px;
+                border-radius: 8px;
+                transition: 0.3s;
+            }
+
+            .menu a:hover {
+                background-color: blue;
+            }
+
+            .hero  {
+                text-align: center;
+                padding: 100px 20px;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .hero p {
+                font-size: 10px;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <nav class="navbar">
+
+            <div class="logo">
+                Hasibur Rahman
+            </div>
+
+            <div class="menu">
+                <a href="#">Home</a>
+                <a href="#">About</a>\
+                <a href="#">Skills</a>
+                <a href="#">Projects</a>
+                <a href="#">Blog</a>
+                <a href="#">Contact</a>
+            </div>
+
+
+        </nav>
+
+        <section class="hero">
+            <h1>Welcome to my website</h1>
+            <p>I am learning Web Development</p>
+        </section>
+    </body>
+</html>

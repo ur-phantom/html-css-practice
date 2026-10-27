@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Day 20 - Grid Website Layout</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial;
+      background-color: #f2f2f2;
+    }
+
+    .container {
+      display: grid;
+
+      grid-template-areas:
+        "header header"
+        "sidebar main"
+        "footer footer";
+
+      grid-template-columns: 220px 1fr;
+      grid-template-rows: 80px 1fr 60px;
+
+      min-height: 100vh;
+      gap: 10px;
+    }
+
+    .header {
+      grid-area: header;
+      background-color: #222;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .sidebar {
+      grid-area: sidebar;
+      background-color: #333;
+      color: white;
+      padding: 20px;
+    }
+
+    .sidebar h3 {
+      text-align: center;
+    }
+
+    .sidebar p {
+      padding: 10px;
+      background-color: #444;
+      border-radius: 8px;
+    }
+
+    .main {
+      grid-area: main;
+      padding: 20px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background-color: white;
+      padding: 25px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    .footer {
+      grid-area: footer;
+      background-color: #222;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @media (max-width: 700px) {
+
+      .container {
+        grid-template-areas:
+          "header"
+          "sidebar"
+          "main"
+          "footer";
+
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <header class="header">
+      <h1>Hasibur Rahman</h1>
+    </header>
+
+    <aside class="sidebar">
+      <h3>Menu</h3>
+
+      <p>Home</p>
+      <p>About</p>
+      <p>Skills</p>
+      <p>Projects</p>
+      <p>Contact</p>
+    </aside>
+
+    <main class="main">
+
+      <h2>My Skills</h2>
+
+      <div class="cards">
+
+        <div class="card">
+          <h3>HTML</h3>
+          <p>Website Structure</p>
+        </div>
+
+        <div class="card">
+          <h3>CSS</h3>
+          <p>Website Design</p>
+        </div>
+
+        <div class="card">
+          <h3>JavaScript</h3>
+          <p>Website Function</p>
+        </div>
+
+        <div class="card">
+          <h3>Responsive Design</h3>
+          <p>Mobile Friendly Website</p>
+        </div>
+        <div class="card">
+            <h3>MATH</h3>
+            <p>Problem Solving</p>
+        </div>
+
+      </div>
+
+    </main>
+
+    <footer class="footer">
+      <p>© 2026 My Portfolio</p>
+    </footer>
+
+  </div>
+
+</body>
+</html>

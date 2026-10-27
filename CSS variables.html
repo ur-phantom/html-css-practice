@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CSS Variables Practice</title>
+        <style>
+            :root {
+                --main-color: #e74c3c;
+                --text-color: #333;
+                --accent: gold;
+                --shadow: 0 4px 10px rgba(0,0,0,0.2);
+                --radius: 30px;
+                --space: 20px;
+            }
+            body {
+                font-family: Arial, sans-serif;
+                color: var(--text-color);
+                padding: var(--space);
+            }
+            .card {
+                background-color: var(--main-color);
+                color: white;
+                box-shadow: var(--shadow);
+                padding: var(--space);
+                border-radius: var(--radius);
+                margin-bottom: var(--space);
+            }
+            .button {
+                background-color: var(--main-color);
+                color: white;
+                border: none;
+                padding: 10px 20px;
+                border-radius: var(--radius);
+            }
+            .badge {
+                background-color: var(--accent);
+                color: white;
+                padding: var(--space);
+                border-radius: var(--radius);
+                margin-bottom: var(--space);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="card">Card one</div>
+        <div class="card">Card two</div>
+        <div class="badge">Badge</div>
+        <button class="button">Click me</button>
+    </body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>DAy 22 - Hero Section</title>
+
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+            body {
+                margin: 0;
+                font-family: Arial;
+            }
+
+            .navbar {
+                background-color: #222;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 15px 40px;
+
+                position: sticky;
+                top: 0;
+            }
+
+            .logo {
+                color: white;
+                font-size: 24px;
+                font-weight: bold;
+            }
+
+            .menu {
+                display: flex;
+                gap: 25px;
+            }
+
+            .menu a {
+                color: white;
+                text-decoration: none;
+                padding: 8px 15px;
+                border-radius: 8px;
+                transition: 0.3s;
+            }
+
+            .menu a:hover {
+                background-color: blue;
+            }
+
+            .hero {
+                height: 100vh;
+
+                background-image:
+                  linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                  url("hero.png");
+
+                background-size: cover;
+                background-position: center;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                text-align: center;
+                color: white;
+            }
+
+            
+            .hero-content {
+                max-width: 700px;
+                padding: 20px;
+            }
+
+            .hero h1 {
+                font-size: 50px;
+                margin-bottom: 15px;
+            }
+
+            .hero p {
+                font-size: 20px;
+                margin-bottom: 30px;
+            }
+
+            .btn {
+                display: inline-block;
+                background-color: #4CAF50;
+                color: white;
+
+                padding: 12px 25px;
+
+                text-decoration: none;
+                border-radius: 8px;
+
+                transition: 0.3s;
+            }
+
+            .btn:hover {
+                transform: scale(1.05);
+                background-color: blue;
+            }
+
+            @media (max-width: 600px) {
+
+                .hero h1 {
+                    font-size: 35px;
+                }
+
+                .hero p {
+                    font-size: 17px;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <nav class="navbar">
+
+            <div class="logo">
+                Hasibur Rahman
+            </div>
+
+            <div class="menu">
+                <a href="#">Home</a>
+                <a href="#">About</a>\
+                <a href="#">Skills</a>
+                <a href="#">Projects</a>
+                <a href="#">Blog</a>
+                <a href="#">Contact</a>
+            </div>
+
+
+        </nav>
+
+        <section class="hero">
+            <div class="hero-content">
+
+                <h1>Hi, I'm Hasibur</h1>
+
+                <p>
+                    I am a web Development Learner
+                    and Mathematics Student.
+                </p>
+
+                <a href="#" class="btn">
+                    View My Projects
+                </a>
+            </div>
+        </section>
+    </body>
+</html>

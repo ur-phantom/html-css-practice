@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Pseudo Practice</title>
+        <style>
+            .note::before {
+                content: "Note: ";
+                font-weight: 700;
+                color: red;
+            }
+            .price::after {
+                content: " USD";
+                color: gray;
+            }
+            .badge {
+                position: relative;
+                display: inline-block;
+                padding: 10px 20px;
+                background-color: lightblue;
+            }
+            .badge::after {
+                content: "";
+                position: absolute;
+                top: -5px;
+                right: -5px;
+                width: 12px;
+                height: 12px;
+                background-color: red;
+                border-radius: 50%;
+            }
+            .warning::before {
+                content: "⚠ ";
+                color: red;
+            }
+            .quote::before {
+                content: "“";
+                font-size: 2rem;
+                color: aqua;
+            }
+        </style>
+    </head>
+    <body>
+        <p class="note">Remember to save your file</p>
+        <p class="price">50</p>
+        <div class="badge">Message</div>
+        <div class="warning">Stop</div>
+        <p class="quote">Stay safe</p>
+    </body>
+</html>

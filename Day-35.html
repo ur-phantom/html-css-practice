@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Day 35 - Keyframes Steps</title>
+
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: lightgreen;
+
+            animation: move 4s infinite;
+        }
+
+        @keyframes move {
+            0% {
+                transform: translateX(0);
+            }
+
+            25% {
+                transform: translateX(200px);
+            }
+
+            50% {
+                transform: translateX(200px) translateY(200px);
+            }
+
+            75% {
+                transform: translateX(0) translateY(200px);
+            }
+
+            100% {
+                transform: translateX(0) translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box"></div>
+
+</body>
+</html>

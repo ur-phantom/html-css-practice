@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Day 23 - Responsive Navbar</title>
+
+        <style>
+            *{
+                box-sizing: border-box;
+            }
+
+            body {
+                margin: 0;
+                font-family: Arial;
+            }
+
+            .navbar {
+                background-color: #222;
+                padding: 15px 30px;
+
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .logo {
+                color: white;
+                font-size: 25px;
+                font-weight: bold;
+            }
+
+            .nav-links {
+                display: flex;
+                gap: 25px;
+            }
+
+            .nav-links a {
+                color: white;
+                text-decoration: none;
+                font-size: 17px;
+            }
+
+            .nav-links a:hover {
+                color: #00ffcc;
+                transition: 0.3s;
+            }
+
+            /* Mobile */
+            @media (max-width: 600px) {
+                .navbar {
+                    flex-direction: column;
+                    gap: 15px;
+                }
+
+                .nav-links {
+                    flex-direction: column;
+                    text-align: center;
+                    gap: 10px;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <nav class="navbar">
+
+            <div class="logo">
+                MY WEB
+            </div>
+
+            <div class="nav-links">
+                <a href="#">Home</a>
+                <a href="#">About</a>
+                <a href="#">Services</a>
+                <a href="#">Portfolio</a>
+                <a href="#">Contact</a>
+            </div>
+        </nav>
+    </body>
+</html>

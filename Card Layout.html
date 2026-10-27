@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Card Layout Practice</title>
+        <style>
+            body {
+                background-color: #eee;
+                padding: 20px;
+            }
+            .cards {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 20px;
+                margin-top: 30px;
+            }
+            .card {
+                flex: 1 1 150px;
+                padding: 20px;
+                background-color: white;
+                border-radius: 10px;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+                transition: transform 0.3s, box-shadow 0.3s;
+            }
+            .card:hover {
+                transform: translateY(-8px);
+                box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="cards">
+            <div class="card">
+                <h3>Development</h3>
+                <p>I built simple web pages with HTML and CSS.</p>
+            </div>
+            <div class="card">
+                <h3>Design</h3>
+                <p>I like clean and colorful layouts.</p>
+            </div>
+            <div class="card">
+                <h3>Responsive</h3>
+                <p>My pages work on phone and laptop.</p>
+            </div>
+            <div class="card">
+                <h3>SEO</h3>
+                <p>I can handle SEO for websites.</p>
+            </div>
+        </div>
+    </body>
+</html>

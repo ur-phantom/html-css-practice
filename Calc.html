@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Calc Practice</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+            }
+            .bar {
+                width: calc(100% - 40px);
+                margin: 20px;
+                padding: 10px;
+                box-sizing: border-box;      
+                background-color: lightblue;      
+            }
+            .box {
+                width: calc(50% - 10px);
+                margin: 10px;
+                padding: 10px;
+                display: inline-block;
+                box-sizing: border-box;
+                background-color: lightgreen;
+            }
+            .title {
+                font-size: clamp(1rem, 10vw, 4rem);
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="bar">Width is 100% minus 40px</div>\
+        <div class="box">Width is 50% minus 10px</div>
+        <h1 class="title">Responsive Title</h1>
+    </body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Day 26 - Pseudo Classes</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f2f2f2;
+            text-align: center;
+            padding: 50px;
+        }
+
+        button {
+            background-color: black;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: gray;
+            transform: scale(1.05);
+        }
+
+        input {
+            margin-top: 30px;
+            padding: 10px;
+            border: 2px solid gray;
+            border-radius: 6px;
+        }
+
+        input:focus {
+            border-color: green;
+            outline: none;
+        }
+
+        .skills div {
+            padding: 15px;
+            margin: 5px;
+            text-align: center;
+            border-radius: 15px;
+            font-size: 20px;
+            background-color: white;
+        }
+
+        .skills div:nth-child(3) {
+            background-color: lightgreen;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Day 26</h1>
+
+    <div class="skills">
+
+        <div>HTML</div>
+        <div>CSS</div>
+        <div>JavaScript</div>
+        <div>Math</div>
+    </div>
+
+    <input type="text" placeholder="Your Name">
+
+    <br>
+
+    <button>Click Here</button>
+
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Day 19 - CSS Grid Advanced</title>
+
+        <style>
+            body {
+                font-family: Arial;
+                background-color: #111;
+                color: white;
+                margin: 20px;
+            }
+            
+            h1 {
+                text-align: center;
+            }
+
+            .container {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 20px;
+            }
+
+            .card {
+                padding: 40px;
+                text-align: center;
+                border-radius: 15px;
+                font-size: 20px;
+                background-color: #333;
+            }
+
+            .big {
+                grid-column: span 3;
+            }
+
+            .tall {
+                grid-row: span 3;
+            }
+
+            .html {
+                background-color: #e44d26;
+            }
+
+            .css {
+                background-color: #264de4;
+            }
+
+            .js {
+                background-color: #f0db4f;
+            }
+
+            .math {
+                background-color: #198754;
+            }
+
+            .typing {
+                background-color: #6f42c1;
+            }
+
+            .tec {
+                background-color: lightpink;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <h1>My Skills</h1>
+
+        <div class="container">
+
+            <div class="card html big">
+                HTML
+            </div>
+
+            <div class="card css">
+                CSS
+            </div>
+
+            <div class="card js tall">
+                JavaScript
+            </div>
+
+            <div class="card math">
+                Math
+            </div>
+
+            <div class="card typing">
+                Typing
+            </div>
+
+            <div class="card tec">
+                Technology 
+            </div>
+
+        </div>
+    </body>
+</html>

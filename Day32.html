@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Day 32 - Animation Direction</title>
+
+    <style>
+        .box {
+            width: 120px;
+            height: 120px;
+            border-radius: 20px;
+            background-color: lightpink;
+            animation-timing-function: ease-in-out;
+            animation: move 2s 1s 1 forwards;
+        }
+
+       
+        @keyframes move {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(300px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box"></div>
+
+</body>
+</html>

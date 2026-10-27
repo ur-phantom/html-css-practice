@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Day 37 - Multiple Animations</title>
+
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            border-radius: 8px;
+            background-color: lightblue;
+
+            animation:
+                move 4s infinite alternate,
+                rotate 2s infinite;
+        }
+
+        @keyframes move {
+            0% {
+                transform: translateX(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateX(250px) rotate(270deg);
+            }
+
+            100% {
+                transform: translateX(500px) rotate(720deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box"></div>
+
+</body>
+</html>

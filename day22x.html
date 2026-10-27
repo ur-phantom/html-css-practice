@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Day 22 - Hero Section</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial;
+    }
+
+    .hero {
+      height: 100vh;
+
+      background-image:
+        linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+        url("hero.png");
+
+      background-size: cover;
+      background-position: center;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      text-align: center;
+      color: white;
+    }
+
+    .hero-content {
+      max-width: 700px;
+      padding: 20px;
+    }
+
+    .hero h1 {
+      font-size: 50px;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      font-size: 20px;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: #4CAF50;
+      color: white;
+
+      padding: 12px 25px;
+
+      text-decoration: none;
+      border-radius: 8px;
+
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+      background-color: #45a049;
+    }
+
+    @media (max-width: 600px) {
+
+      .hero h1 {
+        font-size: 35px;
+      }
+
+      .hero p {
+        font-size: 17px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <section class="hero">
+
+    <div class="hero-content">
+
+      <h1>Hi, I'm Hasibur</h1>
+
+      <p>
+        I am a Web Development Learner
+        and Mathematics Student.
+      </p>
+
+      <a href="#" class="btn">
+        Explore My Work
+      </a>
+
+    </div>
+
+  </section>
+
+</body>
+</html>

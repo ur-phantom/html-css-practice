@@ -1,0 +1,1246 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Happy Birthday Tithy ❤️</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            overflow: hidden;
+            font-family: "Segoe UI", sans-serif;
+
+            background:
+                radial-gradient(
+                    circle at top,
+                    #3b0a2e 0%,
+                    #160016 45%,
+                    #050005 100%
+                );
+
+            color: white;
+        }
+
+
+        /* Background Glow */
+
+        body::before {
+            content: "";
+
+            position: fixed;
+
+            width: 350px;
+            height: 350px;
+
+            background: #ff1493;
+
+            filter: blur(140px);
+
+            opacity: 0.16;
+
+            top: -100px;
+            left: -100px;
+
+            animation: glow 5s infinite alternate;
+        }
+
+
+        body::after {
+            content: "";
+
+            position: fixed;
+
+            width: 300px;
+            height: 300px;
+
+            background: #9d00ff;
+
+            filter: blur(130px);
+
+            opacity: 0.14;
+
+            right: -80px;
+            bottom: -80px;
+
+            animation:
+                glow 6s infinite alternate-reverse;
+        }
+
+
+        @keyframes glow {
+
+            from {
+                transform: scale(1);
+            }
+
+            to {
+                transform: scale(1.4);
+            }
+        }
+
+
+        /* Main */
+
+        .container {
+
+            min-height: 100vh;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            padding: 20px;
+
+            position: relative;
+
+            z-index: 5;
+        }
+
+
+        .card {
+
+            width: 90%;
+
+            max-width: 650px;
+
+            padding: 45px 30px;
+
+            text-align: center;
+
+            background:
+                rgba(255,255,255,0.06);
+
+            border:
+                1px solid rgba(255,255,255,0.14);
+
+            border-radius: 30px;
+
+            backdrop-filter: blur(15px);
+
+            box-shadow:
+                0 0 40px
+                rgba(255,20,147,0.15),
+
+                inset 0 0 30px
+                rgba(255,255,255,0.03);
+
+            animation:
+                cardIn 1.4s ease;
+
+            max-height: 94vh;
+
+            overflow-y: auto;
+
+            scrollbar-width: none;
+        }
+
+
+        .card::-webkit-scrollbar {
+            display: none;
+        }
+
+
+        @keyframes cardIn {
+
+            from {
+                opacity: 0;
+
+                transform:
+                    translateY(50px)
+                    scale(0.85);
+            }
+
+            to {
+                opacity: 1;
+
+                transform:
+                    translateY(0)
+                    scale(1);
+            }
+        }
+
+
+        /* Heading */
+
+        .small {
+
+            font-size: 14px;
+
+            color: #ffb3dc;
+
+            letter-spacing: 3px;
+
+            text-transform: uppercase;
+        }
+
+
+        h1 {
+
+            margin-top: 15px;
+
+            font-size:
+                clamp(40px, 9vw, 70px);
+
+            font-weight: 800;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #ff69b4,
+                    #ffffff,
+                    #ff1493,
+                    #ff69b4
+                );
+
+            background-size: 300%;
+
+            -webkit-background-clip: text;
+
+            color: transparent;
+
+            animation:
+                titleGlow 3s infinite linear,
+                titleIn 1.5s ease;
+        }
+
+
+        @keyframes titleGlow {
+
+            0% {
+                background-position: 0%;
+            }
+
+            100% {
+                background-position: 300%;
+            }
+        }
+
+
+        @keyframes titleIn {
+
+            from {
+                opacity: 0;
+
+                transform:
+                    scale(0.5);
+            }
+
+            to {
+                opacity: 1;
+
+                transform:
+                    scale(1);
+            }
+        }
+
+
+        /* Name */
+
+        .name {
+
+            font-size:
+                clamp(35px, 8vw, 58px);
+
+            margin-top: 5px;
+
+            color: white;
+
+            text-shadow:
+                0 0 10px #ff1493,
+                0 0 30px #ff1493,
+                0 0 60px #ff1493;
+
+            animation:
+                heartbeat 2s infinite;
+        }
+
+
+        @keyframes heartbeat {
+
+            0%,100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+
+        .line {
+
+            width: 100px;
+
+            height: 3px;
+
+            margin: 22px auto;
+
+            border-radius: 10px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    #ff1493,
+                    transparent
+                );
+        }
+
+
+        /* Intro */
+
+        .intro {
+
+            max-width: 500px;
+
+            margin: auto;
+
+            color: #f7dbea;
+
+            font-size: 16px;
+
+            line-height: 1.8;
+        }
+
+
+        .intro span {
+
+            color: #ff69b4;
+
+            font-weight: bold;
+        }
+
+
+        /* =========================
+           ENVELOPE
+        ========================= */
+
+        .envelope-area {
+
+            margin-top: 40px;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            flex-direction: column;
+        }
+
+
+        .envelope {
+
+            width: 300px;
+
+            height: 190px;
+
+            position: relative;
+
+            cursor: pointer;
+
+            perspective: 1000px;
+
+            filter:
+                drop-shadow(
+                    0 15px 30px
+                    rgba(255,20,147,0.25)
+                );
+
+            transition: 0.4s;
+        }
+
+
+        .envelope:hover {
+
+            transform:
+                translateY(-8px)
+                scale(1.03);
+        }
+
+
+        /* Envelope Body */
+
+        .envelope-body {
+
+            position: absolute;
+
+            width: 100%;
+
+            height: 100%;
+
+            bottom: 0;
+
+            left: 0;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #ff4fa3,
+                    #b00072
+                );
+
+            border-radius:
+                5px 5px 12px 12px;
+
+            overflow: hidden;
+
+            z-index: 3;
+        }
+
+
+        /* Envelope side folds */
+
+        .envelope-body::before {
+
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+
+            bottom: 0;
+
+            border-style: solid;
+
+            border-width:
+                95px 150px 0 0;
+
+            border-color:
+                #d92b86
+                transparent
+                transparent
+                transparent;
+        }
+
+
+        .envelope-body::after {
+
+            content: "";
+
+            position: absolute;
+
+            right: 0;
+
+            bottom: 0;
+
+            border-style: solid;
+
+            border-width:
+                95px 0 0 150px;
+
+            border-color:
+                transparent
+                transparent
+                transparent
+                #c52378;
+        }
+
+
+        /* Letter */
+
+        .letter {
+
+            position: absolute;
+
+            width: 270px;
+
+            height: 175px;
+
+            left: 15px;
+
+            bottom: 8px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #fff8fc,
+                    #ffe6f3
+                );
+
+            border-radius: 6px;
+
+            z-index: 2;
+
+            transition:
+                transform 1.2s ease,
+                bottom 1.2s ease;
+
+            box-shadow:
+                0 5px 20px
+                rgba(0,0,0,0.2);
+        }
+
+
+        .letter::before {
+
+            content: "For Tithy 🤍";
+
+            position: absolute;
+
+            top: 45%;
+
+            width: 100%;
+
+            text-align: center;
+
+            color: #b00072;
+
+            font-family: Georgia, serif;
+
+            font-size: 21px;
+
+            font-style: italic;
+        }
+
+
+        /* Envelope flap */
+
+        .flap {
+
+            position: absolute;
+
+            width: 0;
+
+            height: 0;
+
+            left: 0;
+
+            top: 0;
+
+            z-index: 5;
+
+            border-left:
+                150px solid transparent;
+
+            border-right:
+                150px solid transparent;
+
+            border-top:
+                100px solid #ff6ab5;
+
+            transform-origin: top center;
+
+            transition:
+                transform 1s ease;
+
+            filter:
+                drop-shadow(
+                    0 3px 3px
+                    rgba(0,0,0,0.1)
+                );
+        }
+
+
+        /* Envelope seal */
+
+        .seal {
+
+            position: absolute;
+
+            width: 42px;
+
+            height: 42px;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    #ffb6d9,
+                    #e60083
+                );
+
+            left: 50%;
+
+            top: 48%;
+
+            transform:
+                translate(-50%, -50%);
+
+            z-index: 6;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 20px;
+
+            box-shadow:
+                0 0 15px
+                rgba(255,20,147,0.5);
+
+            transition:
+                opacity 0.5s ease;
+        }
+
+
+        /* Open state */
+
+        .envelope.open .flap {
+
+            transform:
+                rotateX(180deg);
+        }
+
+
+        .envelope.open .letter {
+
+            bottom: 75px;
+
+            transform:
+                translateY(-30px);
+        }
+
+
+        .envelope.open .seal {
+
+            opacity: 0;
+        }
+
+
+        .envelope.open {
+
+            cursor: default;
+        }
+
+
+        .open-text {
+
+            margin-top: 20px;
+
+            color: #ffb3dc;
+
+            font-size: 14px;
+
+            letter-spacing: 1px;
+
+            animation:
+                pulseText 2s infinite;
+        }
+
+
+        @keyframes pulseText {
+
+            0%,100% {
+                opacity: 0.5;
+            }
+
+            50% {
+                opacity: 1;
+            }
+        }
+
+
+        /* =========================
+           LETTER MESSAGE
+        ========================= */
+
+        .message {
+
+            display: none;
+
+            margin-top: 30px;
+
+            padding: 10px;
+        }
+
+
+        .message.show {
+
+            display: block;
+
+            animation:
+                messageContainer 1s ease;
+        }
+
+
+        @keyframes messageContainer {
+
+            from {
+                opacity: 0;
+                transform:
+                    translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform:
+                    translateY(0);
+            }
+        }
+
+
+        .message p {
+
+            color: #ffe4f2;
+
+            font-size: 16px;
+
+            line-height: 2;
+
+            margin-bottom: 20px;
+
+            opacity: 0;
+
+            transform:
+                translateY(20px);
+        }
+
+
+        .message.show p {
+
+            animation:
+                textReveal 1s forwards;
+        }
+
+
+        .message.show p:nth-child(1) {
+            animation-delay: 0.3s;
+        }
+
+        .message.show p:nth-child(2) {
+            animation-delay: 0.9s;
+        }
+
+        .message.show p:nth-child(3) {
+            animation-delay: 1.5s;
+        }
+
+        .message.show p:nth-child(4) {
+            animation-delay: 2.1s;
+        }
+
+        .message.show p:nth-child(5) {
+            animation-delay: 2.7s;
+        }
+
+
+        @keyframes textReveal {
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+            }
+        }
+
+
+        .highlight {
+
+            color: #ff8bc8;
+
+            font-weight: bold;
+
+            text-shadow:
+                0 0 10px
+                rgba(255,20,147,0.6);
+        }
+
+
+        .love {
+
+            margin-top: 15px;
+
+            font-size: 27px;
+
+            color: #ff69b4;
+
+            text-shadow:
+                0 0 15px #ff1493,
+                0 0 30px #ff1493;
+
+            animation:
+                heartbeat 2s infinite;
+        }
+
+
+        .from {
+
+            margin-top: 15px;
+
+            color: #cfa8c0;
+
+            font-size: 14px;
+
+            letter-spacing: 2px;
+        }
+
+
+        /* Floating Hearts */
+
+        .heart {
+
+            position: fixed;
+
+            bottom: -50px;
+
+            pointer-events: none;
+
+            z-index: 1;
+
+            animation:
+                floatUp linear forwards;
+        }
+
+
+        @keyframes floatUp {
+
+            from {
+
+                transform:
+                    translateY(0)
+                    rotate(0deg);
+
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            100% {
+
+                transform:
+                    translateY(-110vh)
+                    rotate(360deg);
+
+                opacity: 0;
+            }
+        }
+
+
+        /* Stars */
+
+        .star {
+
+            position: fixed;
+
+            width: 3px;
+
+            height: 3px;
+
+            background: white;
+
+            border-radius: 50%;
+
+            box-shadow:
+                0 0 8px white;
+
+            animation:
+                twinkle 2s infinite alternate;
+        }
+
+
+        @keyframes twinkle {
+
+            from {
+
+                opacity: 0.2;
+
+                transform:
+                    scale(0.5);
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    scale(1.5);
+            }
+        }
+
+
+        /* Mobile */
+
+        @media (max-width: 600px) {
+
+            .card {
+                padding: 35px 18px;
+            }
+
+            .envelope {
+
+                width: 270px;
+
+                height: 170px;
+            }
+
+            .letter {
+
+                width: 240px;
+
+                height: 155px;
+
+                left: 15px;
+            }
+
+            .flap {
+
+                border-left-width: 135px;
+
+                border-right-width: 135px;
+
+                border-top-width: 90px;
+            }
+
+            .envelope-body::before {
+
+                border-width:
+                    85px 135px 0 0;
+            }
+
+            .envelope-body::after {
+
+                border-width:
+                    85px 0 0 135px;
+            }
+
+            .message p {
+
+                font-size: 15px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- Stars -->
+
+    <div class="star" style="top:10%; left:15%;"></div>
+    <div class="star" style="top:20%; left:80%;"></div>
+    <div class="star" style="top:70%; left:10%;"></div>
+    <div class="star" style="top:80%; left:85%;"></div>
+    <div class="star" style="top:35%; left:50%;"></div>
+    <div class="star" style="top:60%; left:70%;"></div>
+
+
+    <div class="container">
+
+        <div class="card">
+
+
+            <div class="small">
+                A little prayer for someone special 🤍
+            </div>
+
+
+            <h1>
+                Happy Birthday
+            </h1>
+
+
+            <div class="name">
+                Tithy ❤️
+            </div>
+
+
+            <div class="line"></div>
+
+
+            <p class="intro">
+
+                আজকের দিনটা শুধু তোমার জন্মদিন নয়,
+                আমার কাছে এটা সেই দিন—
+                যেদিন পৃথিবী পেয়েছিল
+                <span>তোমার মতো একজন মানুষকে।</span>
+
+            </p>
+
+
+            <!-- Envelope -->
+
+            <div class="envelope-area">
+
+                <div
+                    class="envelope"
+                    id="envelope"
+                    onclick="openLetter()"
+                >
+
+                    <!-- Letter -->
+
+                    <div class="letter"></div>
+
+
+                    <!-- Envelope body -->
+
+                    <div class="envelope-body"></div>
+
+
+                    <!-- Flap -->
+
+                    <div class="flap"></div>
+
+
+                    <!-- Seal -->
+
+                    <div class="seal">
+                        ❤️
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="open-text"
+                    id="openText"
+                >
+                    Tap the letter to open 💌
+                </div>
+
+            </div>
+
+
+            <!-- Message -->
+
+            <div
+                class="message"
+                id="message"
+            >
+
+
+                <p>
+                    Tithy,
+                    তোমার জন্মদিনে কোনো বড় প্রতিশ্রুতি নয়—
+                    শুধু একটা দোয়া। 🤍
+                </p>
+
+
+                <p>
+
+                    <span class="highlight">
+                        আল্লাহ যেন তোমার প্রতিটি অশ্রুকে হাসিতে,
+                        প্রতিটি ভয়কে শান্তিতে,
+                        আর প্রতিটি স্বপ্নকে কবুল হওয়া নিয়ামতে বদলে দেন।
+                    </span>
+
+                </p>
+
+
+                <p>
+
+                    তুমি আমার জীবনের এমন এক অনুভূতি,
+                    যাকে শব্দে পুরোটা বলা যায় না—
+                    শুধু নীরবে আল্লাহর কাছে চাওয়া যায়। 🌙
+
+                </p>
+
+
+                <p>
+
+                    যদি আমাদের পথটা
+                    তাঁর লিখে রাখা হয়,
+                    তবে আমি চাই—
+                    এই দুনিয়ার ভালোবাসা
+                    একদিন জান্নাতের শান্তিতেও পূর্ণ হোক। ❤️
+
+                </p>
+
+
+                <p>
+
+                    তোমার জন্য আমার সবচেয়ে সুন্দর কথাগুলো নয়,
+                    আমার সবচেয়ে নীরব দোয়াগুলোই থাকুক।
+
+                </p>
+
+
+                <div class="love">
+                    I Love You, Tithy ❤️
+                </div>
+
+
+                <div class="from">
+                    — তোমার Nishan 🤍
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+
+        /* =====================
+           OPEN LETTER
+        ===================== */
+
+        let opened = false;
+
+
+        function openLetter() {
+
+            if (opened) {
+                return;
+            }
+
+            opened = true;
+
+
+            const envelope =
+                document.getElementById(
+                    "envelope"
+                );
+
+
+            const message =
+                document.getElementById(
+                    "message"
+                );
+
+
+            const openText =
+                document.getElementById(
+                    "openText"
+                );
+
+
+            envelope.classList.add(
+                "open"
+            );
+
+
+            openText.innerHTML =
+                "A little letter from Nishan 🤍";
+
+
+            setTimeout(() => {
+
+                message.classList.add(
+                    "show"
+                );
+
+
+                for (
+                    let i = 0;
+                    i < 35;
+                    i++
+                ) {
+
+                    setTimeout(
+                        createHeart,
+                        i * 70
+                    );
+
+                }
+
+            }, 1200);
+
+        }
+
+
+        /* =====================
+           FLOATING HEARTS
+        ===================== */
+
+        const hearts = [
+            "❤️",
+            "💕",
+            "💗",
+            "💖",
+            "💘",
+            "🤍"
+        ];
+
+
+        function createHeart() {
+
+            const heart =
+                document.createElement(
+                    "div"
+                );
+
+
+            heart.classList.add(
+                "heart"
+            );
+
+
+            heart.innerHTML =
+                hearts[
+                    Math.floor(
+                        Math.random()
+                        *
+                        hearts.length
+                    )
+                ];
+
+
+            heart.style.left =
+                Math.random()
+                * 100
+                + "vw";
+
+
+            heart.style.fontSize =
+                (
+                    15
+                    +
+                    Math.random() * 20
+                )
+                + "px";
+
+
+            heart.style.animationDuration =
+                (
+                    5
+                    +
+                    Math.random() * 5
+                )
+                + "s";
+
+
+            document.body.appendChild(
+                heart
+            );
+
+
+            setTimeout(() => {
+
+                heart.remove();
+
+            }, 10000);
+
+        }
+
+
+        setInterval(
+            createHeart,
+            700
+        );
+
+
+    </script>
+
+</body>
+
+</html>
+```

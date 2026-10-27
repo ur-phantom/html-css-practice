@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Transform Practice</title>
+        <style>
+            body {
+                padding: 50px;
+                font-family: Arial, sans-serif;
+            }
+            .box {
+                width: 80px;
+                height: 80px;
+                background-color: lightblue;
+                display: inline-block;
+                margin: 30px;
+                text-align: center;
+                line-height: 80px;
+            }
+            .move {
+                transform: translate(30px, 20px);
+            }
+            .grow {
+                transform: scale(1.5);
+            }
+            .spin {
+                transform: rotate(45deg);
+            }
+            .combo {
+                transform: scale(1.2) translateX(20px) scale(1.2);
+            }
+            .hover-spin {
+                transition: transform 0.3s;
+            }
+            .hover-spin:hover {
+                transform: rotate(180deg);
+            }
+            .flip {
+                transition: transform 0.3;
+            }
+            .flip:hover {
+                transform: scale(-1, 1);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box">Normal</div>
+        <div class="box move">Move</div>
+        <div class="box grow">Grow</div>
+        <div class="box spin">Spin</div>
+        <div class="box combo">Combo</div>
+        <div class="box hover-spin">Hover</div>
+        <div class="box flip">Flip</div>
+    </body>
+</html>

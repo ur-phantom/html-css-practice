@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Position Practice</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .navbar {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            box-sizing: border-box;
+            background-color: #333;
+            color: white;
+            padding: 15px;
+        }
+        .content {
+            height: 1500px;
+            padding: 20px;
+            background: linear-gradient(to bottom, white, lightblue);
+        }
+        .top-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: lightgreen;
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+    </style>
+    <body>
+        <div class="navbar">My Navbar</div>
+        <div class="content">
+            <p>Scroll down to see the effect.</p>
+        </div>
+        <div class="top-btn">Top</div>
+    </body>
+</html>

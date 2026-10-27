@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Day 25 - Badge</title>
+
+        <style>
+            .card {
+                width: 250px;
+                padding: 30px;
+                background-color: white;
+                border-radius: 15px;
+                text-align: center;
+                position: relative;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            }
+
+            .card button {
+                padding: 10px 20px;
+                border: none;
+                border-radius: 8px;
+                background-color: #222;
+                color: white;
+                cursor: pointer;
+                transition: 0.3s;
+            }
+
+            .card button:hover {
+                background-color: gray;
+                transform: translateY(-5px);
+            }
+
+            .card img:hover {
+                transform: scale(1.05);
+            }
+
+            .card img {
+                width: 120;
+                height: 180px;
+                cursor: pointer;
+                object-fit: cover;
+                border-radius: 10px;
+                box-shadow: 0 10px 15px rgba(0,0,0,0.6);
+                transition: 0.5s;
+                z-index: 20;
+            }
+
+            .badge {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                background-color: green;
+                color: white;
+                padding: 5px 10px;
+                border-radius: 10px;
+                z-index: 30;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="card">
+
+            <div class="badge">NEW</div>
+
+            <img src="mouse.png" alt="mouse pic">
+
+            <h2>Wireless Mouse</h2>
+
+            <p>A smooth and comfortable mouse</p>
+
+            <h3>৳500</h3>
+
+            <button>Buy Now</button>
+        </div>
+    </body>
+</html>

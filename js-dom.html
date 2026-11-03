@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>DOM Practice</title>
+    </head>
+    <body>
+        <h1 id="title">Hello</h1>
+        <p class="info">This is old text.</p>
+        <p id="name"></p>
+        <script>
+            const title = document.querySelector("#title");
+            const info = document.querySelector(".info");
+            const myName = document.querySelector("#name");
+
+            myName.textContent = "I am Hasibur Rahman";
+            title.textContent = "Hello Hasibur";
+            info.textContent = "This text was changed by JavaScript.";
+            info.style.color = "blue";
+            title.style.backgroundColor = "lightyellow";
+            info.style.fontSize = "25px";
+        </script>
+    </body>
+</html>

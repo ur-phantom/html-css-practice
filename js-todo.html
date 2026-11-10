@@ -20,6 +20,37 @@
         const message = document.querySelector("#message");
         const taskList = document.querySelector("#taskList");
 
+        let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+
+        function saveTasks() {
+            localStorage.setItem("tasks", JSON.stringify(tasks));
+        }
+
+        function renderTask() {
+            taskList.innerHTML = "";
+
+            for (let i = 0; i < tasks.length; i++) {
+                const li = document.createElement("li");
+
+                const span = document.createElement("span");
+                span.textContent = tasks[i];
+
+                const deleteBtn = document.createElement("button");
+                deleteBtn.textContent = "x";
+                deleteBtn.style.marginLeft = "10px";
+
+                deleteBtn.addEventListener("click", function () {
+                    tasks.splice(i, 1);
+                    saveTasks();
+                    renderTask();
+                });
+
+                li.appendChild(span);
+                li.appendChild(deleteBtn);
+                taskList.appendChild(li);
+            }
+        }
+
         function addTask() {
             const task = taskInput.value.trim();
 
@@ -27,29 +58,14 @@
                 message.textContent = "Please write something";
             } else {
                 message.textContent = "";
-
-                const li = document.createElement("li");
-
-                const span = document.createElement("span");
-                span.textContent = task;
-
-                const deleteBtn = document.createElement("button");
-                deleteBtn.textContent = "x";
-
-                deleteBtn.style.marginLeft = "10px";
-
-                deleteBtn.addEventListener("click", function () {
-                    li.remove();
-                });
-
-                li.appendChild(span);
-                li.appendChild(deleteBtn);
-                taskList.appendChild(li);
-
+                tasks.push(task);
+                saveTasks();
+                renderTask();
                 taskInput.value = "";
             }
         }
         addBtn.addEventListener("click", addTask);
+
         taskInput.addEventListener("keydown", function (event) {
             if (event.key === "Enter") {
                 addTask();

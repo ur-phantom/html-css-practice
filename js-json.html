@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>JSON Practice</title>
+    </head>
+    <body>
+        <h1>JavaScipt JSON</h1>
+        <script>
+            const tasks = ["Study", "Cook", "Sleep"];
+
+            const text = JSON.stringify(tasks);
+            console.log(text);
+            console.log(typeof text);
+
+            const back = JSON.parse(text);
+            console.log(back);
+            console.log(back[0]);
+            console.log(typeof back);
+        </script>
+    </body>
+</html>

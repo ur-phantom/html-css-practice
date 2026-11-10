@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Storage Practice</title>
+    </head>
+    <body>
+        <h1 id="greeting">Hello</h1>
+        <button id="saveBtn">Save my name</button>
+
+        <script>
+            const greeting = document.querySelector("#greeting");
+            const saveBtn = document.querySelector("#saveBtn");
+
+            const savedName = localStorage.getItem("userName");
+            if (savedName !==null) {
+                greeting.textContent = "welcome back, " + savedName;
+            }
+            
+            saveBtn.addEventListener("click", function () {
+                localStorage.setItem("userName", "Hasibur Rahman");
+                greeting.textContent = "Saved!";
+            });
+        </script>
+    </body>
+</html>

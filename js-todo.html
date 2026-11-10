@@ -5,6 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todo Practice</title>
+    <style>
+        .done {
+            text-decoration: line-through;
+            color: gray;
+        }
+        span {
+            cursor: pointer;
+        }
+    </style>
 </head>
 
 <body>
@@ -26,14 +35,24 @@
             localStorage.setItem("tasks", JSON.stringify(tasks));
         }
 
-        function renderTask() {
+        function renderTasks() {
             taskList.innerHTML = "";
 
             for (let i = 0; i < tasks.length; i++) {
                 const li = document.createElement("li");
 
                 const span = document.createElement("span");
-                span.textContent = tasks[i];
+                span.textContent = tasks[i].text;
+
+                if (tasks[i].done) {
+                    span.classList.add("done");
+                }
+
+                span.addEventListener("click", function () {
+                    tasks[i].done = !tasks[i].done;
+                    saveTasks();
+                    renderTasks();
+                });
 
                 const deleteBtn = document.createElement("button");
                 deleteBtn.textContent = "x";
@@ -58,7 +77,7 @@
                 message.textContent = "Please write something";
             } else {
                 message.textContent = "";
-                tasks.push(task);
+                tasks.push({ text: task, done: false});
                 saveTasks();
                 renderTask();
                 taskInput.value = "";
@@ -71,6 +90,8 @@
                 addTask();
             }
         });
+
+        renderTasks();
     </script>
 </body>
 

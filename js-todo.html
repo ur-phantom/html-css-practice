@@ -10,6 +10,7 @@
             text-decoration: line-through;
             color: gray;
         }
+
         span {
             cursor: pointer;
         }
@@ -22,17 +23,35 @@
     <button id="addBtn">Add</button>
     <p id="message"></p>
     <ul id="taskList"></ul>
+    <p id="counter"></p>
 
     <script>
         const taskInput = document.querySelector("#taskInput");
         const addBtn = document.querySelector("#addBtn");
         const message = document.querySelector("#message");
         const taskList = document.querySelector("#taskList");
+        const counter = document.querySelector("#counter");
 
         let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
         function saveTasks() {
             localStorage.setItem("tasks", JSON.stringify(tasks));
+        }
+
+        function updateCounter() {
+            let remaining = 0;
+
+            for (let i = 0; i < tasks.length; i++) {
+                if (!tasks[i].done) {
+                    remaining++;
+                }
+            }
+
+            if (remaining === 1) {
+                counter.textContent = "1 task left";
+            } else {
+                counter.textContent = remaining + " tasks left";
+            }
         }
 
         function renderTasks() {
@@ -61,13 +80,15 @@
                 deleteBtn.addEventListener("click", function () {
                     tasks.splice(i, 1);
                     saveTasks();
-                    renderTask();
+                    renderTasks();
                 });
 
                 li.appendChild(span);
                 li.appendChild(deleteBtn);
                 taskList.appendChild(li);
             }
+
+            updateCounter();
         }
 
         function addTask() {
@@ -77,9 +98,9 @@
                 message.textContent = "Please write something";
             } else {
                 message.textContent = "";
-                tasks.push({ text: task, done: false});
+                tasks.push({ text: task, done: false });
                 saveTasks();
-                renderTask();
+                renderTasks();
                 taskInput.value = "";
             }
         }

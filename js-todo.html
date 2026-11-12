@@ -24,6 +24,11 @@
     <p id="message"></p>
     <ul id="taskList"></ul>
     <p id="counter"></p>
+    <div>
+        <button id="allBtn">All</button>
+        <button id="activeBtn">Active</button>
+        <button id="completedBtn">Completed</button>
+    </div>
 
     <script>
         const taskInput = document.querySelector("#taskInput");
@@ -33,6 +38,21 @@
         const counter = document.querySelector("#counter");
 
         let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+
+        let filter = "all";
+
+        document.querySelector("#allBtn").addEventListener("click", function () {
+            filter = "all";
+            renderTasks();
+        });
+        document.querySelector("#activeBtn").addEventListener("click", function () {
+            filter = "active";
+            renderTasks();
+        });
+        document.querySelector("#completedBtn").addEventListener("click", function () {
+            filter = "completed";
+            renderTasks();
+        });
 
         function saveTasks() {
             localStorage.setItem("tasks", JSON.stringify(tasks));
@@ -58,8 +78,15 @@
             taskList.innerHTML = "";
 
             for (let i = 0; i < tasks.length; i++) {
-                const li = document.createElement("li");
 
+                if (filter === "active" && tasks[i].done) {
+                    continue;
+                }
+                if (filter === "completed" && !tasks[i].done) {
+                    continue;
+                }
+
+                const li = document.createElement("li");
                 const span = document.createElement("span");
                 span.textContent = tasks[i].text;
 

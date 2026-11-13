@@ -2,6 +2,10 @@
 
 My learning journey in web development.
 
+## Projects
+- [Landing Page](https://ur-phantom.github.io/html-css-practice/)
+- [To-do App](https://ur-phantom.github.io/html-css-practice/js-todo.html)
+
 ## Live Demo
 https://ur-phantom.github.io/html-css-practice/
 

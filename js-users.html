@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Practice</title>
+</head>
+
+<body>
+    <h1>Users</h1>
+    <p id="count"></p>
+    <ul id="userList">
+        <li>Loading...</li>
+    </ul>
+
+    <script>
+        const userList = document.querySelector("#userList");
+        const count = document.querySelector("#count");
+
+        fetch("https://jsonplaceholder.typicode.com/users")
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (users) {
+                userList.innerHTML = "";
+                count.textContent = "Total users: " + users.length;
+
+                for (let i = 0; i < users.length; i++) {
+                    const li = document.createElement("li");
+                    li.textContent = users[i].name + " (" + users[i].address.city + ")";
+                    userList.appendChild(li);
+                }
+            });
+    </script>
+</body>
+
+</html>

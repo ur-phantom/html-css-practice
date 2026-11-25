@@ -185,7 +185,7 @@
         const weatherCodes = {
             0: "Clear sky",
             1: "Mainly clear",
-            2: "Partly Cloudy",
+            2: "Partly cloudy",
             3: "Overcast",
             45: "Fog",
             51: "Light drizzle",
@@ -209,7 +209,7 @@
                 const geoData = await geoResponse.json();
 
                 if (!geoData.results) {
-                    result.textContent = "City not found.";
+                    showMessage("City not found.");
                     return;
                 }
 
@@ -243,7 +243,7 @@
             const city = cityInput.value.trim();
 
             if (city === "") {
-                result.textContent = "Please enter a city name";
+                showMessage("Please enter a city name");
             } else {
                 getWeather(city);
             }

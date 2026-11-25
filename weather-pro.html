@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Search</title>
+
+    <style>
+        :root {
+            --main-color: #4f7cff;
+            --dark-color: #2b3a67;
+            --bg-color: #eef2fb;
+            --text-color: #2d3436;
+            --muted-color: #8a94a6;
+            --radius: 14px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            color: var(--text-color);
+            background: linear-gradient(135deg, var(--bg-color), #dfe7fb);
+        }
+
+        .app {
+            max-width: 420px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: white;
+            border-radius: var(--radius);
+            box-shadow: 0 10px 30px rgba(43, 58, 103, 0.15);
+        }
+
+        h1 {
+            margin: 0;
+            text-align: center;
+            color: var(--dark-color);
+        }
+
+        .subtitle {
+            margin: 5px 0 25px;
+            text-align: center;
+            color: var(--muted-color);
+        }
+
+        .search-row {
+            display: flex;
+            gap: 10px;
+        }
+
+        #cityInput {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid #d5dbe8;
+            border-radius: 10px;
+            font-size: 1rem;
+        }
+
+        #cityInput:focus {
+            outline: none;
+            border-color: var(--main-color);
+        }
+
+        #searchBtn {
+            padding: 12px 20px;
+            background-color: var(--main-color);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #searchBtn:hover {
+            background-color: var(--dark-color);
+        }
+
+         #message {
+            min-height: 1.5rem;
+            margin: 15px 0 0;
+            text-align: center;
+            color: var(--muted-color);
+        }
+
+        .card {
+            margin-top: 20px;
+            padding: 25px;
+            text-align: center;
+            color: white;
+            border-radius: var(--radius);
+            background: linear-gradient(135deg, var(--main-color), var(--dark-color));
+        }
+
+        #cityName {
+            margin: 0;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        #description {
+            margin: 5px 0 0;
+            opacity: 0.85;
+        }
+
+        #temperature {
+            margin: 15px 0;
+            font-size: 3rem;
+            font-weight: 700;
+        }
+
+        .details {
+            display: flex;
+            justify-content: space-around;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.25);
+        }
+
+        .details div {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .label {
+            font-size: 0.8rem;
+            opacity: 0.7;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app">
+        <h1>Weather</h1>
+        <p class="subtitle">Search any city in the world</p>
+
+        <div class="search-row">
+            <input type="text" id="cityInput" placeholder="Enter city name">
+            <button id="searchBtn">Search</button>
+        </div>
+
+        <p id="message"></p>
+
+        <div id="card" class="card hidden">
+            <h2 id="cityName"></h2>
+            <p id="description"></p>
+            <p id="temperature"></p>
+            <div class="details">
+                <div>
+                    <span class="label">Wind</span>
+                    <span id="wind"></span>
+                </div>
+                <div>
+                    <span class="label">Updated</span>
+                    <span id="time"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const cityInput = document.querySelector("#cityInput");
+        const searchBtn = document.querySelector("#searchBtn");
+        const message = document.querySelector("#message");
+        const card = document.querySelector("#card");
+        const cityName = document.querySelector("#cityName");
+        const description = document.querySelector("#description");
+        const temperature = document.querySelector("#temperature");
+        const wind = document.querySelector("#wind");
+        const time = document.querySelector("#time");
+
+        const weatherCodes = {
+            0: "Clear sky",
+            1: "Mainly clear",
+            2: "Partly Cloudy",
+            3: "Overcast",
+            45: "Fog",
+            51: "Light drizzle",
+            61: "Light rain",
+            63: "Moderate rain",
+            65: "Heavy rain",
+            80: "Rain showers",
+            95: "Thunderstorm"
+        };
+        function showMessage(text) {
+            message.textContent = text;
+            card.classList.add("hidden");
+        }
+
+        async function getWeather(city) {
+            try {
+                showMessage("Loading...");
+
+                const geoUrl = "https://geocoding-api.open-meteo.com/v1/search?name=" + encodeURIComponent(city) + "&count=1";
+                const geoResponse = await fetch(geoUrl);
+                const geoData = await geoResponse.json();
+
+                if (!geoData.results) {
+                    result.textContent = "City not found.";
+                    return;
+                }
+
+                const place = geoData.results[0];
+
+                const weatherUrl = "https://api.open-meteo.com/v1/forecast?latitude=" + place.latitude + "&longitude=" + place.longitude + "&current_weather=true";
+                const weatherResponse = await fetch(weatherUrl);
+
+                if (!weatherResponse.ok) {
+                    throw new Error("Server error: " + weatherResponse.status);
+                }
+
+                const weatherData = await weatherResponse.json();
+                const current = weatherData.current_weather;
+
+                cityName.textContent = place.name + ", " + place.country;
+                temperature.textContent = current.temperature + "°C";
+                wind.textContent = current.windspeed + " km/h";
+                time.textContent = current.time.replace("T", " ");
+                description.textContent = weatherCodes[current.weathercode]  || "Unknown";
+
+                message.textContent = "";
+                card.classList.remove("hidden");
+            } catch (error) {
+                console.log(error);
+                showMessage("Could not load weather.");
+            }
+        }
+
+        function search() {
+            const city = cityInput.value.trim();
+
+            if (city === "") {
+                result.textContent = "Please enter a city name";
+            } else {
+                getWeather(city);
+            }
+        }
+
+        searchBtn.addEventListener("click", search);
+
+        cityInput.addEventListener("keydown", function (event) {
+            if (event.key === "Enter") {
+                search();
+            }
+        });
+    </script>
+</body>
+
+</html>

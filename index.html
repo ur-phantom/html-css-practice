@@ -4,47 +4,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hasibur Portfolio</title>
+    <meta name="description" content="Portfolio of Hasibur Rahman, web developer">
+    <title>Hasibur Rahman | Web Developer</title>
+
     <style>
+        :root {
+            --main-color: #4b72e7;
+            --dark-color: #2b3a67;
+            --bg-color: #f5f7fc;
+            --text-color: #2d3436;
+            --muted-color: #6b7280;
+            --radius: 14px;
+        }
+
         * {
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             margin: 0;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
             background-color: var(--bg-color);
-            color: var(--body-text);
-        }
-
-        :root {
-            --main-color: #3498db;
-            --dark-color: #416182;
-            --text-color: #eee;
-            --bg-color: white;
-            --body-text: #333;
-            --section-bg: #f4f4f4;
-            --card-bg: white;
-            --border-color: #ccc;
-        }
-
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --bg-color: #1e1e1e;
-                --body-text: #f0f0f0;
-                --section-bg: #2a2a2a;
-                --card-bg: #333;
-                --border-color: #555;
-                --dark-color: #7fb3e6;
-            }
         }
 
         header {
+            position: sticky;
+            top: 0;
+            z-index: 10;
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 15px 30px;
-            background-color: #333;
-            color: var(--text-color);
+            background-color: var(--dark-color);
+            color: white;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.3rem;
         }
 
         nav {
@@ -53,61 +56,59 @@
         }
 
         nav a {
-            color: var(--text-color);
+            color: white;
             text-decoration: none;
+            opacity: 0.85;
+            transition: opacity 0.3s;
         }
 
-        footer {
-            padding: 20px;
-            text-align: center;
-            background-color: #333;
-            color: var(--text-color);
-        }
-
-        footer p {
-            margin: 0;
+        nav a:hover {
+            opacity: 1;
         }
 
         .hero {
-            padding: 40px 20px;
+            padding: 80px 20px;
             text-align: center;
             color: white;
-            background: linear-gradient(to bottom right, var(--main-color), var(--dark-color));
+            background: linear-gradient(135deg, var(--main-color), var(--dark-color));
         }
 
         .hero h2 {
-            font-size: clamp(1.8rem, 6vw, 3.5rem);
             margin: 0 0 15px;
+            font-size: clamp(1.8rem, 6vw, 3rem);
         }
 
         .hero p {
-            font-size: 1.2rem;
-            margin: 0 0 30px;
+            max-width: 500px;
+            margin: 0 auto 10px;
+            opacity: 0.9;
         }
 
-        .hero-btn {
+        .hero a {
             display: inline-block;
+            margin-top: 20px;
             padding: 12px 30px;
             background-color: white;
-            color: #416182;
+            color: var(--dark-color);
             text-decoration: none;
-            border-radius: 5px;
             font-weight: 700;
+            border-radius: 8px;
             transition: transform 0.3s;
         }
 
-        .hero-btn:hover {
-            transform: scale(1.08);
+        .hero a:hover {
+            transform: scale(1.06);
         }
 
-        .services {
-            padding: 50px 20px;
-            background-color: var(--section-bg);
-            text-align: center;
+        main section:not(.hero) {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 20px;
         }
 
-        .services h2 {
+        main section:not(.hero) h2 {
             margin: 0 0 30px;
+            text-align: center;
             color: var(--dark-color);
         }
 
@@ -115,146 +116,144 @@
             display: grid;
             grid-template-columns: 1fr;
             gap: 20px;
-            max-width: 1000px;
-            margin: 0 auto;
         }
 
         .card {
-            padding: 20px;
-            background-color: var(--card-bg);
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 25px;
+            background-color: white;
+            border-radius: var(--radius);
+            box-shadow: 0 4px 12px rgba(43, 58, 103, 0.1);
             transition: transform 0.3s, box-shadow 0.3s;
         }
 
         .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transform: translateY(-6px);
+            box-shadow: 0 12px 25px rgba(43, 58, 103, 0.18);
         }
-        .contact {
-            padding: 50px 20px;
-            text-align: center;
-        }
-        .contact h2 {
-            margin: 0 0 30px;
+
+        .card h3 {
+            margin: 0 0 10px;
             color: var(--dark-color);
         }
-        .contact-form {
-            max-width: 700px;
-            margin: 0 auto;
-            text-align: left;
+
+        .card p {
+            margin: 0 0 15px;
+            color: var(--muted-color);
         }
-        .form-group {
-            margin-bottom: 20px;
-        }
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
+
+        .card a {
+            color: var(--main-color);
+            text-decoration: none;
             font-weight: 700;
         }
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid var(--border-color);
-            background-color: var(--card-bg);
-            color: var(--body-text);
-            border-radius: 5px;
-            font-size: 1rem;
-            font-family: inherit;
+
+        .card a:hover {
+            text-decoration: underline;
         }
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--main-color);
+
+        @media (min-width: 700px) {
+            .cards {
+                grid-template-columns: repeat(3, 1fr);
+            }
         }
-        .contact-form button {
-            width: 100%;
-            padding: 12px;
-            background-color: var(--main-color);
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: background-color 0.3s;
+
+        #skills ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            padding: 0;
+            list-style: none;
         }
-        .contact-form button:hover {
+
+        #skills li {
+            padding: 10px 18px;
+            background-color: white;
+            border-radius: 999px;
+            box-shadow: 0 2px 6px rgba(43, 58, 103, 0.1);
+        }
+
+        #contact {
+            text-align: center;
+        }
+
+        #contact a {
+            color: var(--main-color);
+            font-weight: 700;
+        }
+
+        footer {
+            padding: 20px;
+            text-align: center;
             background-color: var(--dark-color);
+            color: white;
         }
 
-        @media (min-width: 600px) {
-            .cards {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (min-width: 900px) {
-            .cards {
-                grid-template-columns: repeat(4, 1fr);
-            }
+        footer {
+            margin: 0;
         }
     </style>
 </head>
 
 <body>
     <header>
-        <h1>Hasibur</h1>
+        <h1>Hasibur Rahman</h1>
         <nav>
-            <a href="#">Home</a>
-            <a href="#">About</a>
-            <a href="#services">Services</a>
+            <a href="#projects">Projects</a>
+            <a href="#skills">Skills</a>
             <a href="#contact">Contact</a>
         </nav>
     </header>
+
     <main>
         <section class="hero">
-            <h2>Hi, I am Hasibur Rahman</h2>
-            <p>I am learning web development and building responsive websites.</p>
-            <a href="#contact" class="hero-btn">Contact me</a>
+            <h2>Hi, I am Hasibur</h2>
+            <p>I am doing my honours in Mathematics.</p>
+            <p>I build responsive websites with HTML, CSS and JavaScript.</p>
+            <a href="#projects">View Projects</a>
         </section>
-        <section class="services" id="services">
-            <h2>My Services</h2>
+
+        <section id="projects">
+            <h2>Projects</h2>
             <div class="cards">
-                <div class="card">
-                    <h3>Development</h3>
-                    <p>I build simple web pages with HTML and CSS.</p>
-                </div>
-                <div class="card">
-                    <h3>Design</h3>
-                    <p>I like clean and colorful layouts.</p>
-                </div>
-                <div class="card">
-                    <h3>Responsive</h3>
-                    <p>My pages work on phone and laptop.</p>
-                </div>
-                <div class="card">
-                    <h3>SEO</h3>
-                    <p>I can handle SEO for websites.</p>
-                </div>
+                <article class="card">
+                    <h3>Landing Page</h3>
+                    <p>A responsive landing page with dark mode.</p>
+                    <a href="Landing.html">View Live</a>
+                </article>
+                <article class="card">
+                    <h3>To-do App</h3>
+                    <p>Add, delete, filter and save tasks.</p>
+                    <a href="js-todo.html">View Live</a>
+                </article>
+                <article class="card">
+                    <h3>Weather App</h3>
+                    <p>Search any city and see live weather.</p>
+                    <a href="weather-pro.html">View Live</a>
+                </article>
             </div>
         </section>
-        <section class="contact" id="contact">
-            <h2>Contact Me</h2>
-            <form class="contact-form">
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
-                </div>
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" rows="4" placeholder="Write a message" required></textarea>
-                </div>
-                <button type="submit">Send</button>
-            </form>
+
+        <section id="skills">
+            <h2>Skills</h2>
+            <ul>
+                <li>HTML5</li>
+                <li>CSS3 (Flexbox, Grid, responsive)</li>
+                <li>JavaScript (DOM, fetch, async/await)</li>
+                <li>Git and GitHub</li>
+            </ul>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>Email: hasibur**8@gmail.com</p>
+            <p><a href="https://github.com/ur-phantom">GitHub</a></p>
         </section>
     </main>
+
     <footer>
-        <p>&copy; 2026 Hasibur. All rights reserved.</p>
+        <p>&copy; 2026 Hasibur Rahman</p>
     </footer>
 </body>
+
 </html>
